@@ -22,9 +22,11 @@ export class BoardsComponent implements OnInit {
   }
 
   setBoard(event) {
-    console.log(event);
     this.selectedBoardId = event.target.value;
-    console.log(this.selectedBoardId);
+  }
+
+  writeToFile() {
+
   }
 
 }

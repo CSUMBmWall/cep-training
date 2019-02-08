@@ -5,14 +5,19 @@
     <!--<td>{{board.id}}</td>-->
   <!--</tr>-->
 <!--</table>-->
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">Board</label>
-  </div>
-  <select class="custom-select" id="inputGroupSelect01" (change)="setBoard($event)">
-    <ng-container>
+<div class="row">
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="inputGroupSelect01">Board</label>
+    </div>
+    <select class="custom-select" id="inputGroupSelect01" (change)="setBoard($event)">
       <option *ngFor="let board of boards" [value]="board.id">{{board.name}}</option>
-    </ng-container>
-  </select>
+    </select>
+  </div>
 </div>
+<div class="row">
+  <div class="col-sm">
+    <input class="btn btn-primary" type="submit" (click)="writeToFile()" value="Write To File">
+  </div>
+</div>
+

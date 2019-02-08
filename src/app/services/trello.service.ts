@@ -6,11 +6,16 @@ import {HttpClient} from "@angular/common/http";
 export class TrelloService {
 
   private readonly downloadURL = "http://localhost:3000/TrelloInfo/getBoards";
+  private readonly writeToFileURL = "http://localhost:3000/TrelloInfo/getBoards";
 
   constructor(private http: HttpClient) { }
   boards = new EventEmitter<any>();
 
   public getBoards() {
     return this.http.get<any>(this.downloadURL);
+  }
+
+  public writeToFile(board) {
+    return this.http.post<any>(this.writeToFileURL, {board: board});
   }
 }
