@@ -11,7 +11,6 @@ export class TrelloService {
   boards = new EventEmitter<any>();
 
   public getBoards() {
-    return this.http
-      .post<any>(this.downloadURL);
+    return this.http.get<any>(this.downloadURL);
   }
 }

@@ -1,7 +1,18 @@
-<table *ngFor="let board of boards">
-  <tr>
-    <!--<td>{{board}}</td>-->
-    <td>{{board.name}}</td>
-    <td>{{board.id}}</td>
-  </tr>
-</table>
+<!--<table *ngFor="let board of boards">-->
+  <!--<tr>-->
+    <!--&lt;!&ndash;<td>{{board}}</td>&ndash;&gt;-->
+    <!--<td>{{board.name}}</td>-->
+    <!--<td>{{board.id}}</td>-->
+  <!--</tr>-->
+<!--</table>-->
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Board</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01" >
+    <ng-container *ngFor="let board of boards">
+      <option value={{board.id}}>{{board.name}}</option>
+    </ng-container>
+  </select>
+</div>
