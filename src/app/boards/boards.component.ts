@@ -9,6 +9,7 @@ import {TrelloService} from "../services/trello.service";
 })
 export class BoardsComponent implements OnInit {
   boards;
+  selectedBoardId;
 
   constructor(private trelloService: TrelloService) { }
 
@@ -16,7 +17,14 @@ export class BoardsComponent implements OnInit {
     this.trelloService.getBoards()
       .subscribe((boards) => {
         this.boards = boards;
+        this.selectedBoardId = boards[0].id;
       });
+  }
+
+  setBoard(event) {
+    console.log(event);
+    this.selectedBoardId = event.target.value;
+    console.log(this.selectedBoardId);
   }
 
 }

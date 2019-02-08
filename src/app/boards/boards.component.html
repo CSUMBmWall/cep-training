@@ -10,9 +10,9 @@
   <div class="input-group-prepend">
     <label class="input-group-text" for="inputGroupSelect01">Board</label>
   </div>
-  <select class="custom-select" id="inputGroupSelect01" >
-    <ng-container *ngFor="let board of boards">
-      <option value={{board.id}}>{{board.name}}</option>
+  <select class="custom-select" id="inputGroupSelect01" (change)="setBoard($event)">
+    <ng-container>
+      <option *ngFor="let board of boards" [value]="board.id">{{board.name}}</option>
     </ng-container>
   </select>
 </div>
