@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 export class TrelloService {
 
   private readonly downloadURL = "http://localhost:3000/TrelloInfo/getBoards";
-  private readonly writeToFileURL = "http://localhost:3000/TrelloInfo/getBoards";
+  private readonly writeToFileURL = "http://localhost:3000/TrelloInfo/writeToFile";
 
   constructor(private http: HttpClient) { }
   // boards = new EventEmitter<any>();
@@ -15,7 +15,7 @@ export class TrelloService {
     return this.http.get<any>(this.downloadURL);
   }
 
-  public writeToFile(boardId, boardName) {
-    return this.http.post<any>(this.writeToFileURL, {id: boarId, name: boardName});
+  public writeToFile(board) {
+    return this.http.post<any>(this.writeToFileURL, board);
   }
 }

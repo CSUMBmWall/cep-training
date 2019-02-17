@@ -12,9 +12,12 @@ export class BoardsComponent implements OnInit {
   boards;
   selectedBoardId;
   selectedBoardName;
+  saveStatus = 'Nothing Written';
 
-  boardName;
-  boardID;
+  selectedBoard = {
+    name: null,
+    id: null
+  }
 
   constructor(private trelloService: TrelloService) { }
 
@@ -22,22 +25,19 @@ export class BoardsComponent implements OnInit {
     this.trelloService.getBoards()
       .subscribe((boards) => {
         this.boards = boards;
-        this.selectedBoardId = boards[0].id;
+        this.selectedBoard = boards[0];
       });
   }
 
-  setBoard(event, board) {
-    console.log(board);
-    // console.log(Object.keys(event.target));
-    // // console.log(Object.values(event.target.value));
-    // console.log(event.target.value);
-    this.selectedBoardId = event.target.value;
-  }
+  writeToFile(form) {
+    console.log(form.value.board.name);
+    // console.log(form.value.board.name);
+    console.log(form.value.board.id);
+    this.trelloService.writeToFile(form.value.board)
+      .subscribe((status) => {
+        this.saveStatus = status;
+      });
 
-  writeToFile(form: NgForm) {
-    console.log(form.value);
-    // console.log(name);
-    // console.log(id);
   }
 
   filesPicked(files) {

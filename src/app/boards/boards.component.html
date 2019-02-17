@@ -32,17 +32,50 @@
 
 <!--</form>-->
 
+<!--<form (ngSubmit)="writeToFile(boardForm)" #boardForm="ngForm">-->
+  <!--<div class="row form-group">-->
+    <!--<div class="input-group mb-3">-->
+      <!--<div class="input-group-prepend">-->
+        <!--<label class="input-group-text" for="inputGroupSelect01">Board</label>-->
+      <!--</div>-->
+      <!--<select class="custom-select" id="inputGroupSelect01" >-->
+      <!--&lt;!&ndash;<select class="custom-select" id="inputGroupSelect01" (change)="setBoard($event)">&ndash;&gt;-->
+        <!--<option class="form-control" *ngFor="let board of boards"  name="id" ngModel [value]="board.id">-->
+          <!--<span class="form-control" name="boardName" ngModel>{{board.name}}</span>-->
+        <!--</option>-->
+      <!--</select>-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+    <!--<div class="col-sm">-->
+      <!--<input class="btn btn-primary" type="submit" value="Write To File">-->
+    <!--</div>-->
+    <!--<div class="col-sm">-->
+      <!--&lt;!&ndash;<input class="insertTabs text-center insertTabsInput" name="image" type="file" #image>&ndash;&gt;-->
+      <!--<div class="input-group mb-3">-->
+        <!--<div class="input-group-prepend">-->
+          <!--<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>-->
+        <!--</div>-->
+        <!--<div class="custom-file">-->
+          <!--<input webkitDirectory type="file" class="custom-file-input" id="inputGroupFile01"-->
+                 <!--aria-describedby="inputGroupFileAddon01" (change)="filesPicked(folderInput.files)">-->
+          <!--<label class="custom-file-label" for="inputGroupFile01">Choose file</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+<!--</form>-->
+
 <form (ngSubmit)="writeToFile(boardForm)" #boardForm="ngForm">
-  <div class="row">
+  <div class="row form-group">
     <div class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Board</label>
       </div>
-      <select class="custom-select" id="inputGroupSelect01" >
-      <!--<select class="custom-select" id="inputGroupSelect01" (change)="setBoard($event)">-->
-        <option class="form-control" *ngFor="let board of boards"  name="boardID" ngModel [value]="board.id">
-          <span class="form-control" name="boardName" ngModel>{{board.name}}</span>
-        </option>
+      <select [(ngModel)]="selectedBoard" class="custom-select" id="inputGroupSelect01" name="board">
+        <!--<select class="custom-select" id="inputGroupSelect01" (change)="setBoard($event)">-->
+        <option class="form-control" *ngFor="let board of boards" [ngValue]="board">{{board.name}}</option>
       </select>
     </div>
   </div>
@@ -51,19 +84,31 @@
       <input class="btn btn-primary" type="submit" value="Write To File">
     </div>
     <div class="col-sm">
-      <!--<input class="insertTabs text-center insertTabsInput" name="image" type="file" #image>-->
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-        </div>
-        <div class="custom-file">
-          <input webkitDirectory type="file" class="custom-file-input" id="inputGroupFile01"
-                 aria-describedby="inputGroupFileAddon01" (change)="filesPicked(folderInput.files)">
-          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-        </div>
-      </div>
+      {{saveStatus}}
     </div>
+    <!--<div class="col-sm">-->
+      <!--&lt;!&ndash;<input class="insertTabs text-center insertTabsInput" name="image" type="file" #image>&ndash;&gt;-->
+      <!--<div class="input-group mb-3">-->
+        <!--<div class="input-group-prepend">-->
+          <!--<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>-->
+        <!--</div>-->
+        <!--<div class="custom-file">-->
+          <!--<input webkitDirectory type="file" class="custom-file-input" id="inputGroupFile01"-->
+                 <!--aria-describedby="inputGroupFileAddon01" (change)="filesPicked(folderInput.files)">-->
+          <!--<label class="custom-file-label" for="inputGroupFile01">Choose file</label>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
 </form>
 
+<!--<form (ngSubmit)="writeToFile(boardForm)" #boardForm="ngForm">-->
+  <!--<select [(ngModel)]="selectedBoard" name="board">-->
+    <!--<option *ngFor="let board of boards" [ngValue]="board">{{board.name}}</option>-->
+    <!--&lt;!&ndash;<option *ngFor="let board of boards" [value]="{'id': board.id, 'name': board.name}">{{board.name}}</option>&ndash;&gt;-->
+  <!--</select>-->
+  <!--<div class="col-sm">-->
+  <!--<input class="btn btn-primary" type="submit" value="Write To File">-->
+  <!--</div>-->
+<!--</form>-->
