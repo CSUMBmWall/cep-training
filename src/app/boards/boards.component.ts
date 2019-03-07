@@ -30,12 +30,10 @@ export class BoardsComponent implements OnInit {
   }
 
   writeToFile(form) {
-    console.log(form.value.board.name);
-    // console.log(form.value.board.name);
-    console.log(form.value.board.id);
+    this.saveStatus = '...working'
     this.trelloService.writeToFile(form.value.board)
       .subscribe((status) => {
-        this.saveStatus = status;
+        this.saveStatus = status.msg;
       });
 
   }
